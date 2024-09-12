@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0056b3;
+    color: white;
+    padding: 8px 0;  /* Reduzi o padding */
+    text-align: center;
+    font-size: 22px;  /* Reduzi o tamanho da fonte */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 800px;
+    margin: 40px auto;  /* Ajustei a margem para ficar mais compacta */
+    background: white;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1, h2 {
+    margin-bottom: 15px;  /* Diminuí o espaçamento dos títulos */
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;  /* Diminuí o espaçamento entre os campos */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    background-color: #0056b3;
+    color: white;
+    padding: 10px 15px;  /* Reduzi o padding dos botões */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;  /* Reduzi o tamanho da fonte dos botões */
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003d82;
+}
+
+button[type="reset"] {
+    background-color: #dc3545;
+}
+
+button[type="reset"]:hover {
+    background-color: #c82333;
+}
+
+#successMessage {
+    text-align: center;
+    color: green;
+    margin-top: 20px;
+    font-size: 16px;  /* Ajustei o tamanho da fonte da mensagem */
+}
