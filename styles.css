@@ -5,47 +5,58 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f5;
     color: #333;
-    margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
 header {
-    background-color: #0056b3;
+    background-color: #1e90ff;
     color: white;
-    padding: 8px 0;  /* Reduzi o padding */
+    padding: 20px;
     text-align: center;
-    font-size: 22px;  /* Reduzi o tamanho da fonte */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .container {
-    max-width: 800px;
-    margin: 40px auto;  /* Ajustei a margem para ficar mais compacta */
+    max-width: 600px;
+    margin: 40px auto;
     background: white;
     padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
 
-h1, h2 {
-    margin-bottom: 15px;  /* Diminuí o espaçamento dos títulos */
+h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
 }
 
 form label {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     font-weight: bold;
+    color: #555;
 }
 
 form input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;  /* Diminuí o espaçamento entre os campos */
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus {
+    border-color: #1e90ff;
 }
 
 .buttons {
@@ -54,18 +65,18 @@ form input {
 }
 
 button {
-    background-color: #0056b3;
+    background-color: #1e90ff;
     color: white;
-    padding: 10px 15px;  /* Reduzi o padding dos botões */
+    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 14px;  /* Reduzi o tamanho da fonte dos botões */
+    font-size: 14px;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #003d82;
+    background-color: #007acc;
 }
 
 button[type="reset"] {
@@ -80,5 +91,5 @@ button[type="reset"]:hover {
     text-align: center;
     color: green;
     margin-top: 20px;
-    font-size: 16px;  /* Ajustei o tamanho da fonte da mensagem */
+    font-size: 16px;
 }

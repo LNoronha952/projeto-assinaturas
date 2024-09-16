@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geração de Certificado de Conclusão</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 <body>
 
 <header>
-    <h1>Geração de Certificado de Conclusão de Curso</h1>
+    <h1>Certificado de Conclusão de Curso</h1>
 </header>
 
 <div class="container">
     <section class="cadastro">
         <h2>Preencha seus dados</h2>
         <form id="userForm">
-            <label for="nomeCompleto">Nome Completo:</label>
-            <input type="text" id="nomeCompleto" name="nomeCompleto" required />
-            <br>
-            <label for="dataConclusao">Data de Conclusão:</label>
-            <input type="date" id="dataConclusao" name="dataConclusao" required />
-            <br>
-            <label for="curso">Curso:</label>
-            <input type="text" id="curso" name="curso" required />
-            <br>
+            <div class="form-group">
+                <label for="nomeCompleto">Nome Completo:</label>
+                <input type="text" id="nomeCompleto" name="nomeCompleto" placeholder="Seu nome completo" required />
+            </div>
+            <div class="form-group">
+                <label for="dataConclusao">Data de Conclusão:</label>
+                <input type="date" id="dataConclusao" name="dataConclusao" required />
+            </div>
+            <div class="form-group">
+                <label for="curso">Curso:</label>
+                <input type="text" id="curso" name="curso" placeholder="Nome do curso" required />
+            </div>
             <div class="buttons">
                 <button type="button" onclick="gerarPDF()">Gerar PDF</button>
                 <button type="reset">Limpar</button>
@@ -38,95 +40,9 @@
     </div>
 </div>
 
-<script>
-    function gerarPDF() {
-        // Captura os valores do formulário
-        const nome = document.getElementById('nomeCompleto').value.trim();
-        const curso = document.getElementById('curso').value.trim();
-        const dataConclusao = document.getElementById('dataConclusao').value;
-
-        if (!nome || !curso || !dataConclusao) {
-            alert("Por favor, preencha todos os campos.");
-            return;
-        }
-
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF({
-            orientation: 'portrait',
-            unit: 'mm',
-            format: 'a4'
-        });
-
-        // Cabeçalho com título e certificação
-        doc.setFontSize(12);
-        doc.setFont("Helvetica", "bold");
-        doc.text("Capacitação para o Guia de Visita Domiciliar", 105, 30, null, null, 'center');
-        
-        doc.setFontSize(20);
-        doc.text("CERTIFICADO", 105, 45, null, null, 'center');
-        
-        // Texto principal
-        doc.setFontSize(12);
-        doc.setFont("Helvetica", "normal");
-        doc.text("Certificamos que", 105, 60, null, null, 'center');
-        
-        // Nome do participante capturado do formulário
-        doc.setFontSize(14);
-        doc.setFont("Helvetica", "bold");
-        doc.text(nome.toUpperCase(), 105, 70, null, null, 'center');  // Nome do participante
-        
-        // Texto do curso capturado do formulário
-        doc.setFontSize(12);
-        doc.setFont("Helvetica", "normal");
-        const textoCurso = `participou da Capacitação para o Guia de Visita Domiciliar destinado aos trabalhadores do ` +
-                           `Programa Primeira Infância no SUAS/ Programa Criança Feliz, no período de ${new Date(dataConclusao).toLocaleDateString('pt-BR')}, ` +
-                           "com carga horária de 40 horas.";
-        doc.text(textoCurso, 105, 80, { maxWidth: 170, align: "center" });
-        
-        // Data de emissão
-        doc.setFontSize(10);
-        doc.text(`Recife, ${new Date().toLocaleDateString('pt-BR')}.`, 105, 100, null, null, 'center');
-        
-        // Assinaturas
-        doc.setLineWidth(0.5);
-        doc.line(50, 130, 150, 130);  // Linha da assinatura 1
-        doc.setFontSize(10);
-        doc.setFont("Helvetica", "normal");
-        doc.text("Ana Nery dos Santos Melo", 105, 135, null, null, 'center');
-        doc.setFontSize(8);
-        doc.text("Presidente do Centro de Desenvolvimento e Cidadania", 105, 140, null, null, 'center');
-        
-        doc.line(50, 160, 150, 160);  // Linha da assinatura 2
-        doc.setFontSize(10);
-        doc.text("Carlos Eduardo Braga Farias", 105, 165, null, null, 'center');
-        doc.setFontSize(8);
-        doc.text("Secretário Executivo de Assistência Social", 105, 170, null, null, 'center');
-        
-        // Tabela de conteúdo e carga horária
-        doc.setFontSize(10);
-        doc.setFont("Helvetica", "bold");
-        doc.text("CONTEÚDO", 20, 190);
-        doc.text("CARGA HORÁRIA", 170, 190, null, null, 'right');
-        
-        const conteudo = [
-          ["Credenciamento e apresentação do curso e dos participantes", "8 horas"],
-          ["A importância da Primeira Infância", "8 horas"],
-          ["A Trajetória da Primeira Infância no Brasil", "8 horas"],
-          ["A Importância do Brincar e as Dimensões do Desenvolvimento Infantil", "8 horas"],
-          ["Planejando as ações no Programa Criança Feliz", "8 horas"]
-        ];
-
-        let startY = 200;
-        conteudo.forEach((item, index) => {
-          doc.setFont("Helvetica", "normal");
-          doc.text(item[0], 20, startY + (index * 10));
-          doc.text(item[1], 170, startY + (index * 10), null, null, 'right');
-        });
-
-        // Salvar PDF
-        doc.save('certificado_conclusao.pdf');
-    }
-</script>
+<!-- Script externo -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
