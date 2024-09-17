@@ -57,11 +57,14 @@ form input {
 
 form input:focus {
     border-color: #1e90ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
 }
 
 .buttons {
     display: flex;
     justify-content: space-between;
+    gap: 10px;
 }
 
 button {
@@ -72,11 +75,12 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
     background-color: #007acc;
+    transform: scale(1.05);
 }
 
 button[type="reset"] {
@@ -92,4 +96,19 @@ button[type="reset"]:hover {
     color: green;
     margin-top: 20px;
     font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    h1, h2 {
+        font-size: 18px;
+    }
+
+    button {
+        width: 100%;
+    }
 }
